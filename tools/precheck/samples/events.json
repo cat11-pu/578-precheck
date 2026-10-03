@@ -1,0 +1,300 @@
+{
+  "events": [
+    {
+      "id": "default-push",
+      "room": "ops",
+      "auth_token": "tok-0001",
+      "repo": {
+        "owner": "acme",
+        "name": "widget",
+        "link": "https://gitea.example.com/acme/widget",
+        "avatar": "https://gitea.example.com/avatars/acme.png",
+        "branch": "main"
+      },
+      "remote": {
+        "url": "git@gitea.example.com:acme/widget.git"
+      },
+      "commit": {
+        "sha": "0a266f42a9aef9db97a005ab46f6c53890339a9c",
+        "message": "bump deps",
+        "author": {
+          "name": "Ada",
+          "email": "ada@example.com",
+          "avatar": "https://gitea.example.com/avatars/ada.png"
+        }
+      },
+      "build": {
+        "number": 7,
+        "created": 1448127131,
+        "finished": 1448127505,
+        "link": "https://drone.example.com/acme/widget/7"
+      }
+    },
+    {
+      "id": "fail-escape",
+      "url": "https://api.hipchat.example.com",
+      "room": "eng",
+      "auth_token": "tok-0002",
+      "notify": true,
+      "repo": {
+        "owner": "acme",
+        "name": "widget",
+        "branch": "main"
+      },
+      "commit": {
+        "sha": "abc123def4567890abc123def4567890abc12345",
+        "branch": "release/2.x",
+        "message": "fix <login> & logout",
+        "author": {
+          "name": "Ann & Bo",
+          "email": "ann@example.com"
+        }
+      },
+      "build": {
+        "number": 8,
+        "event": "push",
+        "status": "failure",
+        "created": 1700000000,
+        "finished": 1700000135,
+        "link": "https://drone.example.com/acme/widget/8"
+      }
+    },
+    {
+      "id": "killed-room-space",
+      "url": "https://hipchat.example.com",
+      "room": "War Room",
+      "auth_token": "tok-0003",
+      "from": "warden",
+      "repo": {
+        "owner": "acme",
+        "name": "widget"
+      },
+      "commit": {
+        "sha": "ffeeddccbbaa99887766554433221100ffeeddcc",
+        "message": "rollback",
+        "author": {
+          "name": "Kai"
+        }
+      },
+      "build": {
+        "number": 9,
+        "status": "killed",
+        "created": 1700000200,
+        "finished": 1700000260,
+        "link": "https://drone.example.com/acme/widget/9"
+      }
+    },
+    {
+      "id": "pending",
+      "room": "ops",
+      "auth_token": "tok-0004",
+      "repo": {
+        "owner": "acme",
+        "name": "widget"
+      },
+      "commit": {
+        "sha": "00112233445566778899aabbccddeeff00112233",
+        "message": "waiting on staging",
+        "author": {
+          "name": "Ivy"
+        }
+      },
+      "build": {
+        "number": 10,
+        "status": "pending",
+        "created": 1700000300,
+        "finished": 1700000310,
+        "link": "https://drone.example.com/acme/widget/10"
+      }
+    },
+    {
+      "id": "flaky",
+      "url": "https://api.hipchat.com",
+      "room": "ops",
+      "auth_token": "tok-0005",
+      "repo": {
+        "owner": "acme",
+        "name": "widget"
+      },
+      "commit": {
+        "sha": "112233445566778899aabbccddeeff0011223344",
+        "message": "retry build",
+        "author": {
+          "name": "Ivy"
+        }
+      },
+      "build": {
+        "number": 11,
+        "status": "flaky",
+        "created": 1700000400,
+        "finished": 1700000410,
+        "link": "https://drone.example.com/acme/widget/11"
+      }
+    },
+    {
+      "id": "no-room",
+      "room": "",
+      "auth_token": "tok-0006",
+      "repo": {
+        "owner": "ops",
+        "name": "runbook"
+      },
+      "commit": {
+        "sha": "2233445566778899aabbccddeeff001122334455",
+        "message": "notify ops",
+        "author": {
+          "name": "Mia"
+        }
+      },
+      "build": {
+        "number": 12,
+        "created": 1700000500,
+        "finished": 1700000520,
+        "link": "https://drone.example.com/ops/runbook/12"
+      }
+    },
+    {
+      "id": "no-token",
+      "room": "ops",
+      "auth_token": "",
+      "repo": {
+        "owner": "acme",
+        "name": "widget"
+      },
+      "commit": {
+        "sha": "33445566778899aabbccddeeff00112233445566",
+        "message": "empty token",
+        "author": {
+          "name": "Mia"
+        }
+      },
+      "build": {
+        "number": 13,
+        "created": 1700000600,
+        "finished": 1700000605,
+        "link": "https://drone.example.com/acme/widget/13"
+      }
+    },
+    {
+      "id": "zero-a",
+      "room": "zero",
+      "auth_token": "tok-0008",
+      "repo": {
+        "owner": "acme",
+        "name": "widget"
+      },
+      "commit": {
+        "sha": "445566778899aabbccddeeff0011223344556677",
+        "message": "never finished",
+        "author": {
+          "name": "Nia"
+        }
+      },
+      "build": {
+        "number": 14,
+        "created": 1448127131,
+        "finished": 0,
+        "link": "https://drone.example.com/acme/widget/14"
+      }
+    },
+    {
+      "id": "zero-b",
+      "room": "zero",
+      "auth_token": "tok-0009",
+      "repo": {
+        "owner": "acme",
+        "name": "widget"
+      },
+      "commit": {
+        "sha": "445566778899aabbccddeeff0011223344556677",
+        "message": "never finished",
+        "author": {
+          "name": "Nia"
+        }
+      },
+      "build": {
+        "number": 14,
+        "created": 1448127199,
+        "finished": 0,
+        "link": "https://drone.example.com/acme/widget/14"
+      }
+    },
+    {
+      "id": "empty-author",
+      "room": "ops",
+      "auth_token": "tok-0010",
+      "template": "{{#success build.status}}by {{ uppercasefirst build.author }}{{/success}}",
+      "repo": {
+        "owner": "acme",
+        "name": "widget"
+      },
+      "commit": {
+        "sha": "66778899aabbccddeeff00112233445566778899",
+        "message": "no author",
+        "author": {
+          "name": ""
+        }
+      },
+      "build": {
+        "number": 16,
+        "created": 1700000700,
+        "finished": 1700000701,
+        "link": "https://drone.example.com/acme/widget/16"
+      }
+    },
+    {
+      "id": "bad-template",
+      "room": "ops",
+      "auth_token": "tok-0011",
+      "template": "{{ }",
+      "repo": {
+        "owner": "acme",
+        "name": "widget"
+      },
+      "commit": {
+        "sha": "778899aabbccddeeff0011223344556677889900",
+        "message": "broken",
+        "author": {
+          "name": "Ola"
+        }
+      },
+      "build": {
+        "number": 17,
+        "status": "failure",
+        "created": 1700000800,
+        "finished": 1700000820,
+        "link": "https://drone.example.com/acme/widget/17"
+      }
+    },
+    {
+      "id": "dead-fields",
+      "room": "ops",
+      "auth_token": "tok-0012",
+      "notify": true,
+      "template": "ref={{ build.ref }} full={{ repo.fullname }} signed={{ build.signed }} verified={{ build.verified }} msg={{ build.message }}",
+      "repo": {
+        "owner": "acme",
+        "name": "widget",
+        "fullname": "acme/widget"
+      },
+      "commit": {
+        "sha": "0a266f42a9aef9db97a005ab46f6c53890339a9c",
+        "ref": "refs/heads/main",
+        "message": "fix <login> & logout",
+        "author": {
+          "name": "Pia"
+        }
+      },
+      "build": {
+        "number": 18,
+        "created": 1700000900,
+        "finished": 1700000905,
+        "link": "https://drone.example.com/acme/widget/18"
+      },
+      "yaml": {
+        "verified": true,
+        "signed": true
+      }
+    }
+  ]
+}
